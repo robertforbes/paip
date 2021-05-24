@@ -9,3 +9,6 @@
 (defun test-names ()
   '((John Q Public) (Malcolm X) (Admiral Grace Murray Hopper) (Spot)
     (Aristotle) (A A Milne) (Z Z Top) (Sir Larry Olivier) (Miss Scarlet)))
+
+(defun first-names (names)
+  (mapcar #' first-name names))
