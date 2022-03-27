@@ -23,4 +23,8 @@
 (defun first-names (names)
   (mapcar #' first-name names))
 
+(defun mappend (fn the-list)
+  "Apply fn to each element of the list and append the results."
+  (apply #'append (mapcar fn the-list)))
 
+(defun self-and-double (x) (list x (+ x x)))
