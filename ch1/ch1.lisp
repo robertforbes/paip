@@ -10,14 +10,10 @@
   "Select the last name from a name represented as a list."
   (first (last name)))
 
-;(defun first-name (name)
-;  "Select the first name from a name represented as a list."
-;  (first name))
-
 (defun first-name (name)
   "Select the first name from a name  represented as a list. Skip titles."
   (if (member (first name) *titles*)
-    (first-name2 (rest name))
+    (first-name (rest name))
     (first name)))
 
 (defun test-names ()
