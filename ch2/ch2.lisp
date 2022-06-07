@@ -51,3 +51,13 @@
         ((rewrites phrase)
          (generate (random-elt (rewrites phrase))))
         (t (list phrase))))
+
+(defun generate2 (phrase)
+  "Generate a randcom sentence or phrase"
+  (if (listp phrase)
+    (mappend #'generate2 phrase)
+    (let ((choices (rewrites phrase)))
+      (if (null choices)
+        (list phrase)
+        (generate2 (random-elt choices))))))
+
