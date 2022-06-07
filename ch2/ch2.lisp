@@ -39,3 +39,15 @@
 (defun rewrites (category)
   "Return a list of the possible rewrites for this category."
   (rule-rhs (assoc category *grammar*)))
+
+(defun mappend (fn the-list)
+  "Apply fn to each element of list and append the results."
+  (apply #'append (mapcar fn the-list)))
+
+(defun generate (phrase)
+  "Generate a random sentence or phrase"
+  (cond ((listp phrase)
+         (mappend #'generate phrase))
+        ((rewrites phrase)
+         (generate (random-elt (rewrites phrase))))
+        (t (list phrase))))
