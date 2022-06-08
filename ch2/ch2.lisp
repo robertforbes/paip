@@ -61,3 +61,15 @@
         (list phrase)
         (generate2 (random-elt choices))))))
 
+; Exercise 2.1: Implement a version of generate that uses cond but avoids 
+; calling rewrites twice.
+
+(defun generate3 (phrase)
+  "Generate a random sentence or phrase"
+  (let ((choices (rewrites phrase)))
+    (cond ((listp phrase)
+           (mappend #'generate phrase))
+          (choices
+           (generate3 (random-elt choices)))
+          (t (list phrase)))))
+
