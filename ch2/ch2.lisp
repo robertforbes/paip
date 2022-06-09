@@ -73,3 +73,19 @@
            (generate3 (random-elt choices)))
           (t (list phrase)))))
 
+; Exercise 2.2: write a version of generate which explicitly differentiates
+; between terminal and non-terminal symbols.
+
+(defun non-terminal-p (category)
+  "True if this is a category in the grammar."
+  (not (null (rewrites category))))
+
+(defun generate4 (phrase)
+  "Generate a random sentence or phrase"
+  (cond ((listp phrase)
+         (mappend #'generate4 phrase))
+        ((non-terminal-p phrase)
+         (generate4 (random-elt (rewrites phrase))))
+        (t (list phrase))))
+
+
