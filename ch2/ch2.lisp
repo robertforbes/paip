@@ -104,6 +104,8 @@
     (Verb -> hit took saw liked)
     (Pronoun -> he she it these those that)))
 
+; Note: cannot use the bigger-grammar with generate-all due to the fact that
+; it can't deal with a recursive grammar.
 ; (setf *grammar* *bigger-grammar*)
 
 ; Generate the tree structure used to output sentences.
