@@ -140,3 +140,7 @@
                (mapcar #'(lambda (x) (funcall fn x y)) xlist))
            ylist))
 
+(defun combine-all2 (xlist ylist)
+  "Alternate version of combine-all, using the generic cross-product."
+  (cross-product #'append xlist ylist))
+
