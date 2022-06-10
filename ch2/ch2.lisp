@@ -135,3 +135,8 @@
          (mappend #'generate-all (rewrites phrase)))
         (t (list (list phrase)))))
 
+(defun cross-product (fn xlist ylist)
+  (mappend #'(lambda (y)
+               (mapcar #'(lambda (x) (funcall fn x y)) xlist))
+           ylist))
+
