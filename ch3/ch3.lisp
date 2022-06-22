@@ -19,3 +19,15 @@
         ((< income 50000.00) 0.20)
         ((< income 70000.00) 0.30)
         (t                   0.35)))
+
+; Special forms for dealing with variables and places
+
+; Ex 3.1
+
+(defun lam ()
+  "Wrapper to allow lambda to be called."
+  ((lambda (x)
+     (+ x ((lambda (y)
+             (* y y))
+           x)))
+   6))
