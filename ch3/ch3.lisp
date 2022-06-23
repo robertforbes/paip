@@ -31,3 +31,9 @@
              (* y y))
            x)))
    6))
+
+(defstruct player (score 0) (wins 0))
+
+(defun determine-winner (players)
+  "Increment the wins for the player with the highest score."
+  (incf (player-wins (first (sort players #'> :Key #'player-score)))))
