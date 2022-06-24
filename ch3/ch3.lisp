@@ -50,3 +50,9 @@
   (let ((len 0))                ; not Norvig's favourite
     (dolist (element list1 len) ; uses len as the result from dolist
       (incf len))))
+
+(defun length2 (list1)
+  (let ((len 0))                ; start with LEN=0
+    (mapc #'(lambda (element) (incf len)) list1)
+    len))
+
