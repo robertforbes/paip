@@ -45,3 +45,8 @@
     (dolist (element list1)     ; and on each iteration
       (incf len))               ; increment LEN by 1
     len))                       ; and return LEN
+
+(defun length1.1 (list1)        ; alternate version
+  (let ((len 0))                ; not Norvig's favourite
+    (dolist (element list1 len) ; uses len as the result from dolist
+      (incf len))))
