@@ -37,3 +37,11 @@
 (defun determine-winner (players)
   "Increment the wins for the player with the highest score."
   (incf (player-wins (first (sort players #'> :Key #'player-score)))))
+
+; Functions and special forms for repetition.
+
+(defun length1 (list1)
+  (let ((len 0))                ; start with LEN=0
+    (dolist (element list1)     ; and on each iteration
+      (incf len))               ; increment LEN by 1
+    len))                       ; and return LEN
